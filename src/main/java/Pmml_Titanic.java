@@ -14,7 +14,6 @@ public class Pmml_Titanic {
 
     public static void main(String args[]) throws IOException {
 
-
         InputStreamReader isr = new InputStreamReader(System.in);
         BufferedReader br = new BufferedReader(isr);
         int opcion=1, edad = 0, sexo = 0, clase =0, salir=1;
@@ -122,10 +121,16 @@ public class Pmml_Titanic {
                 mapa.put(new FieldName("pclass"), clase);
                 mapa.put(new FieldName("age"), edad);
 
+                long startTime = System.currentTimeMillis();
 
 
                 Map<FieldName, ?> resultado = modelEvaluator.evaluate(mapa);
                 NodeScoreDistribution aux = (NodeScoreDistribution) resultado.get(new FieldName("survived"));
+
+
+                long tiempo= (System.currentTimeMillis()-startTime);
+
+                System.out.println("\nHa tardado: "+tiempo+ " milisegundos en calcular la predicción");
 
                 String res = "";
 
