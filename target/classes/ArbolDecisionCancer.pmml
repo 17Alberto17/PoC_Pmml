@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<PMML xmlns="http://www.dmg.org/PMML-4_3" version="4.3">
+	<Header>
+		<Application name="JPMML-SkLearn" version="1.4.5"/>
+		<Timestamp>2018-01-12T10:36:06Z</Timestamp>
+	</Header>
+	<MiningBuildTask>
+		<Extension>PMMLPipeline(steps=[('classifier', DecisionTreeClassifier(class_weight=None, criterion='entropy', max_depth=None,
+            max_features=None, max_leaf_nodes=None,
+            min_impurity_decrease=0.0, min_impurity_split=None,
+            min_samples_leaf=1, min_samples_split=2,
+            min_weight_fraction_leaf=0.0, presort=False, random_state=None,
+            splitter='best'))])</Extension>
+	</MiningBuildTask>
+	<DataDictionary>
+		<DataField name="y" optype="categorical" dataType="integer">
+			<Value value="0"/>
+			<Value value="1"/>
+		</DataField>
+		<DataField name="x1" optype="continuous" dataType="float"/>
+		<DataField name="x2" optype="continuous" dataType="float"/>
+		<DataField name="x3" optype="continuous" dataType="float"/>
+		<DataField name="x4" optype="continuous" dataType="float"/>
+		<DataField name="x6" optype="continuous" dataType="float"/>
+		<DataField name="x7" optype="continuous" dataType="float"/>
+		<DataField name="x8" optype="continuous" dataType="float"/>
+		<DataField name="x9" optype="continuous" dataType="float"/>
+		<DataField name="x10" optype="continuous" dataType="float"/>
+	</DataDictionary>
+	<TransformationDictionary>
+		<DerivedField name="double(x8)" optype="continuous" dataType="double">
+			<FieldRef field="x8"/>
+		</DerivedField>
+		<DerivedField name="double(x4)" optype="continuous" dataType="double">
+			<FieldRef field="x4"/>
+		</DerivedField>
+		<DerivedField name="double(x6)" optype="continuous" dataType="double">
+			<FieldRef field="x6"/>
+		</DerivedField>
+		<DerivedField name="double(x1)" optype="continuous" dataType="double">
+			<FieldRef field="x1"/>
+		</DerivedField>
+		<DerivedField name="double(x7)" optype="continuous" dataType="double">
+			<FieldRef field="x7"/>
+		</DerivedField>
+		<DerivedField name="double(x10)" optype="continuous" dataType="double">
+			<FieldRef field="x10"/>
+		</DerivedField>
+		<DerivedField name="double(x2)" optype="continuous" dataType="double">
+			<FieldRef field="x2"/>
+		</DerivedField>
+		<DerivedField name="double(x3)" optype="continuous" dataType="double">
+			<FieldRef field="x3"/>
+		</DerivedField>
+		<DerivedField name="double(x9)" optype="continuous" dataType="double">
+			<FieldRef field="x9"/>
+		</DerivedField>
+	</TransformationDictionary>
+	<TreeModel functionName="classification" missingValueStrategy="nullPrediction" splitCharacteristic="multiSplit">
+		<MiningSchema>
+			<MiningField name="y" usageType="target"/>
+			<MiningField name="x8"/>
+			<MiningField name="x4"/>
+			<MiningField name="x6"/>
+			<MiningField name="x1"/>
+			<MiningField name="x7"/>
+			<MiningField name="x10"/>
+			<MiningField name="x2"/>
+			<MiningField name="x3"/>
+			<MiningField name="x9"/>
+		</MiningSchema>
+		<Output>
+			<OutputField name="probability(0)" optype="continuous" dataType="double" feature="probability" value="0"/>
+			<OutputField name="probability(1)" optype="continuous" dataType="double" feature="probability" value="1"/>
+		</Output>
+		<Node>
+			<True/>
+			<Node>
+				<SimplePredicate field="double(x8)" operator="lessOrEqual" value="0.049230001866817474"/>
+				<Node>
+					<SimplePredicate field="double(x4)" operator="lessOrEqual" value="696.25"/>
+					<Node>
+						<SimplePredicate field="double(x8)" operator="lessOrEqual" value="0.04470000043511391"/>
+						<Node>
+							<SimplePredicate field="double(x6)" operator="lessOrEqual" value="0.060419999063014984"/>
+							<Node score="0" recordCount="83.0">
+								<SimplePredicate field="double(x6)" operator="lessOrEqual" value="0.059105001389980316"/>
+								<ScoreDistribution value="0" recordCount="83.0"/>
+								<ScoreDistribution value="1" recordCount="0.0"/>
+							</Node>
+							<Node score="0" recordCount="6.0">
+								<SimplePredicate field="double(x1)" operator="lessOrEqual" value="11.649999618530273"/>
+								<ScoreDistribution value="0" recordCount="6.0"/>
+								<ScoreDistribution value="1" recordCount="0.0"/>
+							</Node>
+							<Node score="0" recordCount="1.0">
+								<SimplePredicate field="double(x7)" operator="lessOrEqual" value="0.025259999558329582"/>
+								<ScoreDistribution value="0" recordCount="1.0"/>
+								<ScoreDistribution value="1" recordCount="0.0"/>
+							</Node>
+							<Node score="0" recordCount="1.0">
+								<SimplePredicate field="double(x10)" operator="lessOrEqual" value="0.05567999929189682"/>
+								<ScoreDistribution value="0" recordCount="1.0"/>
+								<ScoreDistribution value="1" recordCount="0.0"/>
+							</Node>
+							<Node score="1" recordCount="2.0">
+								<True/>
+								<ScoreDistribution value="0" recordCount="0.0"/>
+								<ScoreDistribution value="1" recordCount="2.0"/>
+							</Node>
+						</Node>
+						<Node score="0" recordCount="162.0">
+							<True/>
+							<ScoreDistribution value="0" recordCount="162.0"/>
+							<ScoreDistribution value="1" recordCount="0.0"/>
+						</Node>
+					</Node>
+					<Node score="0" recordCount="7.0">
+						<SimplePredicate field="double(x2)" operator="lessOrEqual" value="24.709999084472656"/>
+						<ScoreDistribution value="0" recordCount="7.0"/>
+						<ScoreDistribution value="1" recordCount="0.0"/>
+					</Node>
+					<Node score="1" recordCount="2.0">
+						<True/>
+						<ScoreDistribution value="0" recordCount="0.0"/>
+						<ScoreDistribution value="1" recordCount="2.0"/>
+					</Node>
+				</Node>
+				<Node score="0" recordCount="5.0">
+					<SimplePredicate field="double(x2)" operator="lessOrEqual" value="18.68000030517578"/>
+					<ScoreDistribution value="0" recordCount="5.0"/>
+					<ScoreDistribution value="1" recordCount="0.0"/>
+				</Node>
+				<Node score="0" recordCount="1.0">
+					<SimplePredicate field="double(x10)" operator="lessOrEqual" value="0.05280999839305878"/>
+					<ScoreDistribution value="0" recordCount="1.0"/>
+					<ScoreDistribution value="1" recordCount="0.0"/>
+				</Node>
+				<Node score="1" recordCount="10.0">
+					<True/>
+					<ScoreDistribution value="0" recordCount="0.0"/>
+					<ScoreDistribution value="1" recordCount="10.0"/>
+				</Node>
+			</Node>
+			<Node>
+				<SimplePredicate field="double(x3)" operator="lessOrEqual" value="103.0"/>
+				<Node>
+					<SimplePredicate field="double(x2)" operator="lessOrEqual" value="20.21500015258789"/>
+					<Node>
+						<SimplePredicate field="double(x8)" operator="lessOrEqual" value="0.07972000539302826"/>
+						<Node score="0" recordCount="14.0">
+							<SimplePredicate field="double(x2)" operator="lessOrEqual" value="15.565000534057617"/>
+							<ScoreDistribution value="0" recordCount="14.0"/>
+							<ScoreDistribution value="1" recordCount="0.0"/>
+						</Node>
+						<Node>
+							<SimplePredicate field="double(x9)" operator="lessOrEqual" value="0.20605000853538513"/>
+							<Node>
+								<SimplePredicate field="double(x6)" operator="lessOrEqual" value="0.1306999921798706"/>
+								<Node score="0" recordCount="2.0">
+									<SimplePredicate field="double(x7)" operator="lessOrEqual" value="0.07109500467777252"/>
+									<ScoreDistribution value="0" recordCount="2.0"/>
+									<ScoreDistribution value="1" recordCount="0.0"/>
+								</Node>
+								<Node score="0" recordCount="1.0">
+									<SimplePredicate field="double(x3)" operator="lessOrEqual" value="89.26499938964844"/>
+									<ScoreDistribution value="0" recordCount="1.0"/>
+									<ScoreDistribution value="1" recordCount="0.0"/>
+								</Node>
+								<Node score="1" recordCount="3.0">
+									<True/>
+									<ScoreDistribution value="0" recordCount="0.0"/>
+									<ScoreDistribution value="1" recordCount="3.0"/>
+								</Node>
+							</Node>
+							<Node score="0" recordCount="7.0">
+								<True/>
+								<ScoreDistribution value="0" recordCount="7.0"/>
+								<ScoreDistribution value="1" recordCount="0.0"/>
+							</Node>
+						</Node>
+						<Node score="0" recordCount="1.0">
+							<SimplePredicate field="double(x1)" operator="lessOrEqual" value="11.530000686645508"/>
+							<ScoreDistribution value="0" recordCount="1.0"/>
+							<ScoreDistribution value="1" recordCount="0.0"/>
+						</Node>
+						<Node score="1" recordCount="4.0">
+							<True/>
+							<ScoreDistribution value="0" recordCount="0.0"/>
+							<ScoreDistribution value="1" recordCount="4.0"/>
+						</Node>
+					</Node>
+					<Node score="1" recordCount="8.0">
+						<True/>
+						<ScoreDistribution value="0" recordCount="0.0"/>
+						<ScoreDistribution value="1" recordCount="8.0"/>
+					</Node>
+				</Node>
+				<Node>
+					<SimplePredicate field="double(x9)" operator="lessOrEqual" value="0.1740500032901764"/>
+					<Node score="0" recordCount="1.0">
+						<SimplePredicate field="double(x3)" operator="lessOrEqual" value="88.05999755859375"/>
+						<ScoreDistribution value="0" recordCount="1.0"/>
+						<ScoreDistribution value="1" recordCount="0.0"/>
+					</Node>
+					<Node score="1" recordCount="2.0">
+						<True/>
+						<ScoreDistribution value="0" recordCount="0.0"/>
+						<ScoreDistribution value="1" recordCount="2.0"/>
+					</Node>
+				</Node>
+				<Node score="1" recordCount="25.0">
+					<True/>
+					<ScoreDistribution value="0" recordCount="0.0"/>
+					<ScoreDistribution value="1" recordCount="25.0"/>
+				</Node>
+			</Node>
+			<Node score="1" recordCount="107.0">
+				<True/>
+				<ScoreDistribution value="0" recordCount="0.0"/>
+				<ScoreDistribution value="1" recordCount="107.0"/>
+			</Node>
+		</Node>
+	</TreeModel>
+</PMML>
